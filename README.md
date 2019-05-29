@@ -4,7 +4,7 @@ The learning objectives of this project are to:
 1. build a neural network for a community task 
 2. practice tuning model hyper-parameters
 
-# Read about the CodaLab Competition
+# Problem Description
 
 Given: A tweet
 
