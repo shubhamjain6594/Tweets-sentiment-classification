@@ -1,106 +1,35 @@
 # Objectives
 
-The learning objectives of this assignment are to:
+The learning objectives of this project are to:
 1. build a neural network for a community task 
 2. practice tuning model hyper-parameters
 
 # Read about the CodaLab Competition
 
-You will be participating in a class-wide competition.
-The competition website is:
+Given: A tweet
 
-https://competitions.codalab.org/competitions/20206?secret_key=a8ce2691-d55a-451d-971b-e94c1627a245
+Task: classify the tweet as zero or more of eleven emotions that best represent the mental state of the tweeter:
 
-You should visit that site and read all the details of the competition, which
-include the task definition, how your model will be evaluated, the format of
-submissions to the competition, etc.
+1. anger (also includes annoyance and rage) can be inferred
+2. anticipation (also includes interest and vigilance) can be inferred
+3. disgust (also includes disinterest, dislike and loathing) can be inferred
+4. fear (also includes apprehension, anxiety, concern, and terror) can be inferred
+5. joy (also includes serenity and ecstasy) can be inferred
+6. love (also includes affection) can be inferred
+7. optimism (also includes hopefulness and confidence) can be inferred
+8. pessimism (also includes cynicism and lack of confidence) can be inferred
+9. sadness (also includes pensiveness and grief) can be inferred
+10. suprise (also includes distraction and amazement) can be inferred
+11. trust (also includes acceptance, liking, and admiration) can be inferred
 
-# Create a CodaLab account
+# Evaluation Metrices
 
-You must create a CodaLab account and join the competition:
-1. Visit the competition website.
+The primary evaluation metric is multi-label accuracy (or Jaccard index). Since this is a multi-label classification task, each tweet can have one or more gold emotion labels, and one or more predicted emotion labels. Multi-label accuracy is defined as the size of the intersection of the predicted and gold label sets divided by the size of their union. This measure is calculated for each tweet, and then is averaged over all tweets in the dataset.
 
-2. In the upper right corner of the page, you should see a "Sign Up" button.
-Click that and go through the process to create an account.
-**Please use your @email.arizona.edu account when signing up.**
-Your username will be displayed publicly on a leaderboard showing everyone's
-scores.
-**If you wish to remain anonymous, please select a username that does not reveal
-your identity.**
-Your instructor will still be able to match your score with your name via your
-email address, but your email address will not be visible to other students. 
+Secondary evaluation metrics are also provided: micro-averaged F-score and macro-averaged F-score. These additional metrics are intended to provide a different perspective on the results.
 
-3. Return to the competition website and click the "Participate" tab, where you
-should be able to request to be added to the competition.
+# Results on test set
 
-4. Wait for your instructor to manually approve your request.
-This may take a day or two. 
-
-5. You should then be able to return to the "Participate" tab and see a
-"Submit / View Results" option.
-That means you are fully registered for the task.
-
-# Clone the repository
-
-Clone the repository created by GitHub Classroom to your local machine:
-```
-git clone https://github.com/UA-ISTA-457-FA18/graduate-project-<your-username>.git
-```
-Note that you do not need to create a separate branch as in previous assignments
-(though you're welcome to if you so choose).
-You are now ready to begin working on the assignment.
-
-# Write your code
-
-You should design a neural network model to perform the task described on the
-CodaLab site.
-You must create and train your neural network in the Keras framework that we
-have been using in the class.
-You should train and tune your model using the training and development data
-that is already included in your GitHub Classroom repository.
-
-**You may incorporate extra resources beyond this training data, but only if
-you provide those same resources to all other students in the class by posting
-the resource on Piazza: https://piazza.com/arizona/fall2018/49321841infoista457557001**
-
-There is some sample code in your repository from which you could start, but
-you should feel free to delete that code entirely and start from scratch if
-you prefer.
-
-# Test your model predictions on the development set
-
-To test the performance of your model, the only officially supported way is to
-run your model on the development set (included in your GitHub Classroom
-checkout), format your model predictions as instructed on the CodaLab site,
-and upload your model's predictions on the "Participate" tab of the CodaLab
-site.
-
-Unofficially, you may make use of scikit-learn's `jaccard_similarity_score` to 
-test your model locally.
-But you are **strongly** encouraged to upload your model's development set
-predictions to the CodaLab site many times to make sure you have all the
-formatting correct.
-Otherwise, you risk trying to debug formatting issues on the test set, when
-the time to submit your model predictions is much more limited.
-
-# Submit your model predictions on the test set
-
-When the test phase of the competition begins (consult the CodaLab site for the
-exact timing), the instructor will release the test data and update the CodaLab
-site to expect predictions on the test set, rather than predictions on the
-development set.
-You should run your model on the test data, and upload your model predictions to
-the CodaLab site.
- 
-# Grading
-
-You will be graded first by your model's accuracy, and second on how well your
-model ranks in the competition.
-If your model achieves at least 0.300 accuracy on the test set, you will get
-at least a B.
-If your model achieves at least 0.450 accuracy on the test set, you will get
-an A.
-All models within the same letter grade will be distributed evenly across the
-range, based on their rank.
-So for example, the highest ranked model in the A range will get 100%, and the
-lowest ranked model in the B range will get 80%.
+1. Accuracy - 51.2%
+2. Micro-avg F1 - 62.7%
+3. Macro-avg F1 - 46.8%
